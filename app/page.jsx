@@ -1,5 +1,6 @@
 import React from 'react';
 import { Eye } from 'lucide-react';
+import Image from 'next/image';
 
 function Home() {
   return (
@@ -7,7 +8,12 @@ function Home() {
       {/* Left Section */}
       <div className="flex-1 flex items-center justify-center p-8">
         <div className="max-w-md w-full">
-          <h1 className="text-5xl font-medium text-white font-light mb-2">Athon Tools</h1>
+
+          <div className='flex items-center gap-5'>
+            <Image src={"/athonfav.png"} width={40} height={40} />
+            <h1 className="text-5xl font-medium text-white font-light mb-2">Athon Tools</h1>
+          </div>
+
           <h1 className="text-4xl text-white font-light mb-2">
             Suas ferramentas, sua gestão, sua vida mais facil.
           </h1>
@@ -15,7 +21,7 @@ function Home() {
       </div>
 
       {/* Right Section */}
-      <div className="w-[780px] bg-[#0a192f]/80 backdrop-blur-sm p-12 flex flex-col justify-center">
+      <div className="w-[780px] bg-zinc-800/40 backdrop-blur-sm p-12 flex flex-col justify-center">
 
         <h2 className="text-2xl text-white font-medium mb-2">Seja bem vindo athon colaborador! ✨</h2>
         <p className="text-gray-400 mb-8">
@@ -44,16 +50,10 @@ function Home() {
                 className="input-style pr-10"
                 placeholder="••••••••"
               />
-              <button
-                type="button"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white"
-              >
-                <Eye size={20} />
-              </button>
             </div>
           </div>
 
-          <button type="submit" className="btn-primary">
+          <button type="submit" className="btn-primary hover:bg-zinc-800 transition-700">
             Entrar →
           </button>
         </form>

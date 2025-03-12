@@ -2,6 +2,7 @@
 
 body {
   color: white;
+  background-color: rgb(3, 3, 13);
 }
 
 
@@ -13,22 +14,4 @@ button {
   cursor: pointer;
   transition: all 0.3s;
   color: white;
-}
-
-.animated-background {
-  background-size: 400%;
-  -webkit-animation: animation 8s ease infinite;
-  -moz-animation: animation 8s ease infinite;
-  animation: animation 8s ease infinite;
-}
-
-@keyframes animation {
-  0%,
-  100% {
-      background-position: 0% 50%;
-  }
-  
-  50% {
-      background-position: 100% 50%;
-  }
 }

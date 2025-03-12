@@ -10,9 +10,9 @@ export default function Home() {
       <Link href="home/ausentes" className="group">
         <motion.div 
           whileHover={{ scale: 1.02 }}
-          className="w-[350px] h-[350px] bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-600/30 shadow-xl overflow-hidden hover:border-slate-500/50 transition-all duration-300"
+          className="w-[350px] h-[350px] bg-zinc-900/80 backdrop-blur-sm rounded-xl border border-slate-600/30 shadow-xl overflow-hidden hover:border-slate-500/50 transition-all duration-300"
         >
-          <div className="p-4 bg-slate-800/80 border-b border-slate-700/50">
+          <div className="p-4 bg-zinc-800/80 border-b border-slate-700/50">
             <div className="flex items-center justify-between">
               <h1 className="text-lg font-medium text-slate-100">Reagendamento Ausentes</h1>
               <div className="flex space-x-3">

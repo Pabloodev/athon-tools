@@ -1,5 +1,6 @@
 "use client"
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
@@ -93,120 +94,117 @@ export default function Page() {
 
   return (
     <div className="min-h-screen text-white">
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="text-center mb-12 relative">
-          <Link href="/home">
-          <button
-            onClick={handleReset}
-            className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center gap-2 px-4 py-2 bg-blue-900/50 hover:bg-blue-800 rounded-full transition-colors"
-          >
-            <Home className="w-4 h-4" />
-            <span>Início</span>
-          </button></Link>
-          
-          <h1 className="text-4xl font-bold mb-2">Athon Telecom</h1>
-          <h2 className="text-xl text-cyan-300">Reagendamento OS</h2>
+
+      <div className='flex items-center justify-center relative'>
+        <div className='flex items-center gap-3 justify-center mt-10'>
+          <Image src={"/athonfav.png"} width={30} height={30} alt='Icon Athon Telecom' />
+          <h1 className='text-3xl font-medium'>Reagendamento Ausentes</h1>
         </div>
 
-        {/* File Upload Area */}
-        <div
-          {...getRootProps()}
-          className={`
+        <Link className='absolute top-8 left-5' href="/home">
+        <button
+          onClick={handleReset}
+          className="flex items-center gap-2"
+        >
+          <Home className="w-4 h-4" />
+          <span>Início</span>
+        </button>
+      </Link>
+      </div>
+
+      
+
+
+      {/* File Upload Area */}
+      <div
+        {...getRootProps()}
+        className={`
             mt-8 mb-10 border-2 border-dashed rounded-lg p-8 text-center cursor-pointer
             transition-all duration-200 ease-in-out
             ${isDragActive ? 'border-cyan-400 bg-blue-800/50' : 'border-white/30 hover:border-white/50'}
           `}
-        >
-          <input {...getInputProps()} />
-          <FileSpreadsheet className="w-12 h-12 mx-auto mb-4 text-cyan-300" />
-          <p className="text-lg">
-            {isDragActive
-              ? 'Solte o arquivo aqui...'
-              : 'Arraste e solte o arquivo Excel aqui ou clique para selecionar'}
-          </p>
-        </div>
+      >
+        <input {...getInputProps()} />
+        <FileSpreadsheet className="w-12 h-12 mx-auto mb-4" />
+        <p className="text-lg">
+          {isDragActive
+            ? 'Solte o arquivo aqui...'
+            : 'Arraste e solte o arquivo Excel aqui ou clique para selecionar'}
+        </p>
+      </div>
 
-        {/* Region Buttons */}
-        <div className="flex space-x-4 items-center justify-center mb-8">
-          {['SBC', 'GRAJAÚ', 'FRANCO'].map((regionName) => (
-            <button
-              key={regionName}
-              onClick={() => handleRegionChange(regionName)}
-              className={`
+      {/* Region Buttons */}
+      <div className="flex space-x-4 items-center justify-center mb-8">
+        {['SBC', 'GRAJAÚ', 'FRANCO'].map((regionName) => (
+          <button
+            key={regionName}
+            onClick={() => handleRegionChange(regionName)}
+            className={`
                 px-6 py-2 rounded-full transition-all duration-200
-                ${
-                  region === regionName
-                    ? 'bg-cyan-600 text-white'
-                    : 'bg-blue-900/50 hover:bg-blue-800'
-                }
+                ${region === regionName
+                ? 'bg-zinc-600 text-white'
+                : 'bg-zinc-900/50'
+              }
               `}
-            >
-              {regionName}
-            </button>
-          ))}
-        </div>
+          >
+            {regionName}
+          </button>
+        ))}
+      </div>
 
-        {/* Results Area */}
-        <div className="max-w-2xl mx-auto">
-          {filteredData.length > 0 ? (
-            <div className="bg-blue-900/30 rounded-lg p-6">
-              <ul className="space-y-2 mb-6">
-                {filteredData.map((row, index) => (
-                  <li
-                    key={index}
-                    className={`
-                      p-3 rounded
-                      ${
-                        row.Diagnóstico === 'ENDEREÇO NÃO LOCALIZADO '
-                          ? 'bg-orange-900/30 text-orange-200'
-                          : 'bg-blue-800/30'
-                      }
+      {/* Results Area */}
+      <div className="max-w-2xl mx-auto">
+        {filteredData.length > 0 ? (
+          <div className="rounded-lg p-6">
+            <ul className="flex flex-col items-center text-start space-y-1 mb-6">
+              {filteredData.map((row, index) => (
+                <li
+                  key={index}
+                  className={`
+                      p-1 rounded
+                      ${row.Diagnóstico === 'ENDEREÇO NÃO LOCALIZADO '
+                      ? 'text-orange-400'
+                      : ''
+                    }
                     `}
-                  >
-                    <strong>{row.Cliente}</strong> - {row.Assunto.substring(2)}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="flex items-center justify-center gap-4">
-                <button
-                  onClick={handleCopy}
-                  className="flex items-center gap-2 px-6 py-2 bg-cyan-600 hover:bg-cyan-700 rounded-full transition-colors"
                 >
-                  <Copy className="w-4 h-4" />
-                  Copiar Lista
-                </button>
-                {copyMessage && (
-                  <span className="flex items-center gap-2 text-green-300">
-                    <CheckCircle2 className="w-4 h-4" />
-                    {copyMessage}
-                  </span>
-                )}
-              </div>
+                  <strong>{row.Cliente}</strong> - {row.Assunto.substring(2)}
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex items-center justify-center gap-4">
+              <button
+                onClick={handleCopy}
+                className="flex items-center gap-2 px-6 py-2 bg-zinc-900 hover:bg-zinc-700 rounded-full transition-colors"
+              >
+                <Copy className="w-4 h-4" />
+                Copiar Lista
+              </button>
+              {copyMessage && (
+                <span className="flex items-center gap-2 text-green-300">
+                  <CheckCircle2 className="w-4 h-4" />
+                  {copyMessage}
+                </span>
+              )}
             </div>
-          ) : (
-            <p className="text-center text-xl text-cyan-200">
-              Nenhum dado para exibir. Importe o arquivo de ordens de serviço.
-            </p>
-          )}
-        </div>
-
-        {/* Legend */}
-        <div className="fixed bottom-8 right-8 bg-blue-900/80 p-4 rounded-lg">
-          <div className="flex items-center gap-3 mb-2">
-            <span className="w-4 h-4 bg-blue-800/30 border border-white/30 rounded bg-white"></span>
-            <p>Cliente Ausente</p>
           </div>
-          <div className="flex items-center gap-3">
-            <span className="w-4 h-4 bg-orange-900/30 border border-orange-500/30 rounded bg-orange-500"></span>
-            <p>Endereço não localizado</p>
-          </div>
-        </div>
+        ) : (
+          <p className="text-center text-xl">
+            Nenhum dado para exibir. Importe o arquivo de ordens de serviço.
+          </p>
+        )}
+      </div>
 
-        {/* Footer */}
-        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 text-center text-sm text-cyan-200/70">
-          <span>code by pablodev ©</span>
+      {/* Legend */}
+      <div className="fixed bottom-8 right-8 p-4 rounded-lg">
+        <div className="flex items-center gap-3 mb-2">
+          <span className="w-4 h-4 bg-blue-800/30 border border-white/30 rounded bg-white"></span>
+          <p>Cliente Ausente</p>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="w-4 h-4 text-orange-400 border border-orange-500/30 rounded bg-orange-500"></span>
+          <p>Endereço não localizado</p>
         </div>
       </div>
     </div>
