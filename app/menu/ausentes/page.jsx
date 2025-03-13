@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import * as XLSX from 'xlsx';
-import { FileSpreadsheet, Copy, CheckCircle2, Home } from 'lucide-react';
+import { FileSpreadsheet, Copy, CheckCircle2, ChevronLeft } from 'lucide-react';
 
 export default function Page() {
   const [data, setData] = useState([]);
@@ -98,22 +98,14 @@ export default function Page() {
       <div className='flex items-center justify-center relative'>
         <div className='flex items-center gap-3 justify-center mt-10'>
           <Image src={"/athonfav.png"} width={30} height={30} alt='Icon Athon Telecom' />
-          <h1 className='text-3xl font-medium'>Reagendamento Ausentes</h1>
+          <h1 className='text-xl'>Reagendamento Ausentes</h1>
         </div>
 
-        <Link className='absolute top-8 left-5' href="/home">
-        <button
-          onClick={handleReset}
-          className="flex items-center gap-2"
-        >
-          <Home className="w-4 h-4" />
-          <span>Início</span>
-        </button>
-      </Link>
+        <Link href={"/menu"} className="flex items-center hover:text-gray-400 transition duration-500 absolute top-6 left-5">
+          <ChevronLeft />
+          <span>Menu</span>
+        </Link>
       </div>
-
-      
-
 
       {/* File Upload Area */}
       <div
@@ -125,8 +117,8 @@ export default function Page() {
           `}
       >
         <input {...getInputProps()} />
-        <FileSpreadsheet className="w-12 h-12 mx-auto mb-4" />
-        <p className="text-lg">
+        <FileSpreadsheet className="w-10 h-10 mx-auto mb-4" />
+        <p className="text-base">
           {isDragActive
             ? 'Solte o arquivo aqui...'
             : 'Arraste e solte o arquivo Excel aqui ou clique para selecionar'}
@@ -140,9 +132,9 @@ export default function Page() {
             key={regionName}
             onClick={() => handleRegionChange(regionName)}
             className={`
-                px-6 py-2 rounded-full transition-all duration-200
+                px-6 py-2 rounded-full transition-all duration-200 text-sm
                 ${region === regionName
-                ? 'bg-zinc-600 text-white'
+                ? 'bg-zinc-800'
                 : 'bg-zinc-900/50'
               }
               `}
@@ -161,7 +153,7 @@ export default function Page() {
                 <li
                   key={index}
                   className={`
-                      p-1 rounded
+                      p-1 rounded text-sm
                       ${row.Diagnóstico === 'ENDEREÇO NÃO LOCALIZADO '
                       ? 'text-orange-400'
                       : ''
@@ -190,7 +182,7 @@ export default function Page() {
             </div>
           </div>
         ) : (
-          <p className="text-center text-xl">
+          <p className="text-center text-base text-orange-500">
             Nenhum dado para exibir. Importe o arquivo de ordens de serviço.
           </p>
         )}

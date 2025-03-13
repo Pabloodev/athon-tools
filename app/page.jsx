@@ -1,8 +1,31 @@
+"use client";
+
+import { useState } from 'react';
+import { login } from './lib/actions/auth';
+import { useRouter } from "next/navigation";
 import React from 'react';
-import { Eye } from 'lucide-react';
 import Image from 'next/image';
 
 function Home() {
+
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
+
+  async function handleLogin(event) {
+    event.preventDefault();
+    setError("");
+
+    const res = await login(password);
+
+    if (res.success) {
+        router.push("/menu");
+    } else {
+        setError(res.message);
+    }
+}
+
+
   return (
     <div className="min-h-screen flex">
       {/* Left Section */}
@@ -10,7 +33,7 @@ function Home() {
         <div className="max-w-md w-full">
 
           <div className='flex items-center gap-5'>
-            <Image src={"/athonfav.png"} width={40} height={40} />
+            <Image src={"/athonfav.png"} width={40} height={40} alt='Athon Telecom Icon' />
             <h1 className="text-5xl font-medium text-white font-light mb-2">Athon Tools</h1>
           </div>
 
@@ -32,15 +55,7 @@ function Home() {
           .
         </p>
 
-        <form className="space-y-6">
-          <div>
-            <label className="block text-gray-400 mb-2">E-mail</label>
-            <input
-              type="email"
-              className="input-style"
-              placeholder="seu.email@exemplo.com"
-            />
-          </div>
+        <form className="space-y-6" onSubmit={handleLogin}>
 
           <div>
             <label className="block text-gray-400 mb-2">Senha</label>
@@ -49,6 +64,7 @@ function Home() {
                 type="password"
                 className="input-style pr-10"
                 placeholder="••••••••"
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
           </div>
@@ -57,6 +73,8 @@ function Home() {
             Entrar →
           </button>
         </form>
+
+        {error && <p className="text-red-500 mt-2">{error}</p>}
 
       </div>
     </div>
