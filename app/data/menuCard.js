@@ -1,5 +1,4 @@
-import { CalendarSync, Bike, Bolt  } from 'lucide-react';
-
+import { CalendarSync, Bike, Bolt } from 'lucide-react';
 
 export const cardData = [
     {
@@ -17,7 +16,7 @@ export const cardData = [
     {
         title: "Sulucionador em Progresso",
         description: "Soluciona os atendimentos em progresso automaticamente.",
-        link: "/menu/progresso",
+        link: "",
         icon: Bolt
     },
 ]

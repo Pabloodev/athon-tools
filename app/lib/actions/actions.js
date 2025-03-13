@@ -13,9 +13,7 @@ export async function runWithdrawal() {
     await page.click('#btn-next-login');
     await page.fill('#password', 'R@botinik123');
     await page.click('#btn-enter-login');
-    if (await page.isVisible('#btn-enter-login')) {
-        await page.click('#btn-enter-login');
-    }
+    await page.click('#btn-enter-login');
 
     // Navegação
     await page.click('#menu76420e3e2ec10bca79d6bfcc6356354c');
