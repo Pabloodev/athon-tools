@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["app/*"] // Certifique-se de apontar para a pasta correta (ex: "src")
     }
   }
 }

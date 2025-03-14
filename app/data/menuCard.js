@@ -16,7 +16,7 @@ export const cardData = [
     {
         title: "Sulucionador em Progresso",
         description: "Soluciona os atendimentos em progresso automaticamente.",
-        link: "",
+        link: "/menu/progress",
         icon: Bolt
     },
 ]

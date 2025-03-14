@@ -1,6 +1,6 @@
 import { CalendarDays, MessageSquare, Timer } from 'lucide-react';
 
-const previewCard = [
+const retrievalCard = [
     {
         title: "Retira as OSs alocadas",
         icon: CalendarDays
@@ -15,4 +15,4 @@ const previewCard = [
     },
 ]
 
-export { previewCard }
+export { retrievalCard }
