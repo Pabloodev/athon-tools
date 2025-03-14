@@ -2,7 +2,8 @@
 
 body {
   color: white;
-  background-color: rgb(3, 3, 13);
+  background: rgb(27, 28, 227);
+  background: linear-gradient(261deg, rgb(5, 5, 48) 0%, rgba(0, 10, 19, 1) 46%, rgb(35, 2, 37) 100%);
   font-family: Geist;
 }
 

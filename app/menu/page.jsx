@@ -22,7 +22,7 @@ export default function Home() {
         {cardData.map((card, index) => (
           <li key={index} className="p-5 border-1 border-gray-400 rounded-lg max-w-[350px] flex flex-col gap-4 items-center">
             <h1>{card.title}</h1>
-            <p className="text-gray-300">{card.description}</p>
+            <p className="text-gray-300 text-center">{card.description}</p>
             <card.icon size={50}/>
             <Link href={card.link} className="flex items-center gap-1 hover:text-blue-400  transition duration-400">
               <span>Acessar App</span>

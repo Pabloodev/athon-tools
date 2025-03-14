@@ -5,7 +5,7 @@ import { retrievalCard } from "../../data/retrievalCard"
 import { retrieval } from "../../lib/actions/actions"
 
 export default async function Page() {
-    return ( // Adicionei o return aqui
+    return (
         <div className="flex flex-col min-h-screen items-center justify-center relative gap-20">
             <Link href={"/menu"} className="flex items-center hover:text-gray-400 transition duration-500 absolute top-6 left-5">
                 <ChevronLeft />

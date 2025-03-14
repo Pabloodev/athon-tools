@@ -14,9 +14,9 @@ export const cardData = [
         icon: Bike
     },
     {
-        title: "Sulucionador em Progresso",
-        description: "Soluciona os atendimentos em progresso automaticamente.",
-        link: "/menu/progress",
+        title: "Em progresso",
+        description: "Este projeto ainda está em desenvolvimento, novidades em breve.",
+        link: "",
         icon: Bolt
     },
 ]

@@ -182,7 +182,7 @@ export default function Page() {
             </div>
           </div>
         ) : (
-          <p className="text-center text-base text-orange-500">
+          <p className="text-center text-base text-orange-300">
             Nenhum dado para exibir. Importe o arquivo de ordens de serviço.
           </p>
         )}
