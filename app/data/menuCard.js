@@ -14,9 +14,9 @@ export const cardData = [
         icon: Bike
     },
     {
-        title: "Em progresso",
-        description: "Este projeto ainda está em desenvolvimento, novidades em breve.",
-        link: "",
+        title: "Acompanhamento SLA",
+        description: "Automatiza o processo de acompanhamento da planilha.",
+        link: "/menu/sla",
         icon: Bolt
     },
 ]

@@ -2,7 +2,6 @@ import Link from "next/link"
 import { ChevronLeft } from "lucide-react"
 import Image from "next/image"
 import { retrievalCard } from "../../data/retrievalCard"
-import { retrieval } from "../../lib/actions/actions"
 
 export default async function Page() {
     return (
@@ -19,7 +18,7 @@ export default async function Page() {
 
             <div className="flex flex-col gap-4 items-center text-lg">
                 <p>Clique no botão abaixo <span className="text-blue-500">para ativar o script</span>.</p>
-                <button onClick={retrieval} className="hover:bg-blue-950">Ativar Robo</button>
+                <button className="hover:bg-blue-950">Ativar Robo</button>
             </div>
 
             <div>
